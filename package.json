@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development tsx server/_core/index.ts",
     "dev:watch": "cross-env NODE_ENV=development tsx watch server/_core/index.ts",
-    "build": "vite build && esbuild server/_core/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist-server",
+    "build": "vite build",
+    "build:server": "esbuild server/_core/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist-server",
     "start": "cross-env NODE_ENV=production node dist-server/index.js",
     "check": "tsc --noEmit",
     "format": "prettier --write .",
