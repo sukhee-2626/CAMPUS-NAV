@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development tsx server/_core/index.ts",
     "dev:watch": "cross-env NODE_ENV=development tsx watch server/_core/index.ts",
-    "build": "vite build",
+    "build": "node -e \"const fs = require('fs'); fs.rmSync('dist', { recursive: true, force: true }); fs.rmSync('dist-server', { recursive: true, force: true });\" && vite build",
     "build:server": "esbuild server/_core/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist-server",
     "start": "cross-env NODE_ENV=production node dist-server/index.js",
     "check": "tsc --noEmit",
